@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <h2>{{ session.title }}</h2>
+    <p>{{ session.content }}</p>
+  
+    <div class="comments-section">
+      <h4>Comments</h4>
+      <ul>
+        <li *ngFor="let comment of comments">
+          <p>{{ comment.content }}</p>
+          <button (click)="replyToComment(comment.id)">Reply</button>
+          <ul>
+            <li *ngFor="let reply of comment.replies">
+              <p>{{ reply.content }}</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <input [ (ngModel)]="newComment" placeholder="Add a comment" />
+      <button (click)="addComment()">Submit</button>
+    </div>
+  </div>
+  
